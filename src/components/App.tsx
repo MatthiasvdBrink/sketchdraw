@@ -6,6 +6,8 @@ import rough from "roughjs/bin/rough";
 import clsx from "clsx";
 import { nanoid } from "nanoid";
 
+import initialData from "./initialData";
+
 import {
   actionAddToLibrary,
   actionBringForward,
