@@ -313,6 +313,7 @@ export interface ExcalidrawProps {
         }
       ],
       "appState": { "zenModeEnabled": true, "viewBackgroundColor": "#AFEEEE" }
+      "libraryItems": {}
     };
   excalidrawRef?: ForwardRef<ExcalidrawAPIRefValue>;
   isCollaborating?: boolean;
