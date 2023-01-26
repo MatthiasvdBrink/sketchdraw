@@ -282,15 +282,6 @@ import { Fonts } from "../scene/Fonts";
 import { actionPaste } from "../actions/actionClipboard";
 import { actionToggleHandTool } from "../actions/actionCanvas";
 
-import {
-  resolvablePromise,
-  withBatchedUpdates,
-  withBatchedUpdatesThrottled,
-  distance2d
-} from "./utils";
-import { ResolvablePromise } from "@excalidraw/excalidraw/types/utils";
-
-
 const initialStatePromiseRef = useRef<{
   promise: ResolvablePromise<ExcalidrawInitialDataState | null>;
 }>({ promise: null! });
