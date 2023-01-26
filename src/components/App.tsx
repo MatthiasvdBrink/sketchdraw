@@ -303,7 +303,7 @@ export default function App() {
   }>({ promise: null! });
   if (!initialStatePromiseRef.current.promise) {
     initialStatePromiseRef.current.promise = resolvablePromise<ExcalidrawInitialDataState | null>();
-  }
+  }}
 
 const deviceContextInitialValue = {
   isSmScreen: false,
