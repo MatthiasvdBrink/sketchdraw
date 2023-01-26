@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { flushSync } from "react-dom";
 
 import { RoughCanvas } from "roughjs/bin/canvas";
 import rough from "roughjs/bin/rough";
 import clsx from "clsx";
 import { nanoid } from "nanoid";
+
+import initialData from "./initialData";
 
 import {
   actionAddToLibrary,
@@ -279,6 +281,16 @@ import { shouldShowBoundingBox } from "../element/transformHandles";
 import { Fonts } from "../scene/Fonts";
 import { actionPaste } from "../actions/actionClipboard";
 import { actionToggleHandTool } from "../actions/actionCanvas";
+
+export default function App() {
+   const [comment, setComment] = useState<Comment | null>(null);
+
+  const initialStatePromiseRef = useRef<{
+    promise: ResolvablePromise<ExcalidrawInitialDataState | null>;
+  }>({ promise: null! });
+  if (!initialStatePromiseRef.current.promise) {
+    initialStatePromiseRef.current.promise = resolvablePromise<ExcalidrawInitialDataState | null>();
+  }}
 
 const deviceContextInitialValue = {
   isSmScreen: false,
