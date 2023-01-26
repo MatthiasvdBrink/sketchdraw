@@ -282,12 +282,28 @@ import { Fonts } from "../scene/Fonts";
 import { actionPaste } from "../actions/actionClipboard";
 import { actionToggleHandTool } from "../actions/actionCanvas";
 
-const initialStatePromiseRef = useRef<{
-  promise: ResolvablePromise<ExcalidrawInitialDataState | null>;
-}>({ promise: null! });
-if (!initialStatePromiseRef.current.promise) {
-  initialStatePromiseRef.current.promise = resolvablePromise<ExcalidrawInitialDataState | null>();
-}
+export default function App() {
+  const appRef = useRef<any>(null);
+  const [viewModeEnabled, setViewModeEnabled] = useState(false);
+  const [zenModeEnabled, setZenModeEnabled] = useState(false);
+  const [gridModeEnabled, setGridModeEnabled] = useState(false);
+  const [blobUrl, setBlobUrl] = useState<string>("");
+  const [canvasUrl, setCanvasUrl] = useState<string>("");
+  const [exportWithDarkMode, setExportWithDarkMode] = useState(false);
+  const [exportEmbedScene, setExportEmbedScene] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const [isCollaborating, setIsCollaborating] = useState(false);
+  const [commentIcons, setCommentIcons] = useState<{ [id: string]: Comment }>(
+    {}
+  );
+  const [comment, setComment] = useState<Comment | null>(null);
+
+  const initialStatePromiseRef = useRef<{
+    promise: ResolvablePromise<ExcalidrawInitialDataState | null>;
+  }>({ promise: null! });
+  if (!initialStatePromiseRef.current.promise) {
+    initialStatePromiseRef.current.promise = resolvablePromise<ExcalidrawInitialDataState | null>();
+  }
 
 const deviceContextInitialValue = {
   isSmScreen: false,
